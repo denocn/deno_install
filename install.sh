@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright 2019 the Deno authors. All rights reserved. MIT license.
+# Copyright 2019-2020 the Deno authors. All rights reserved. MIT license.
 # TODO(everyone): Keep this script simple and easily auditable.
 
 set -e
@@ -14,17 +14,18 @@ if [ $(uname -m) != "x86_64" ]; then
 	exit
 fi
 
+deno_version=$1
+
 if [ $# -eq 0 ]; then
-	deno_asset_path=$(
-		command curl -sSf https://github.com/denoland/deno/releases |
-			command grep -o "/denoland/deno/releases/download/.*/deno-${target}\\.zip" |
+	deno_version=$(
+		command curl -sSf https://deno.devtips.cn/releases/versions |
 			command head -n 1
 	)
-	if [ ! "$deno_asset_path" ]; then exit 1; fi
-	deno_uri="https://github.com${deno_asset_path}"
-else
-	deno_uri="https://github.com/denoland/deno/releases/download/${1}/deno-${target}.zip"
 fi
+
+deno_uri="https://deno.devtips.cn/releases/download/${deno_version}/deno-${target}.zip"
+
+echo $deno_uri
 
 deno_install="${DENO_INSTALL:-$HOME/.deno}"
 bin_dir="$deno_install/bin"
@@ -40,12 +41,14 @@ unzip -o "$exe.zip"
 chmod +x "$exe"
 rm "$exe.zip"
 
-echo "Deno was installed successfully to $exe"
+echo "Deno 已经成功安装"
+echo "可执行文件位置为 $exe"
+
 if command -v deno >/dev/null; then
-	echo "Run 'deno --help' to get started"
+	echo "运行 'deno --help' 查看 Deno 帮助信息"
 else
-	echo "Manually add the directory to your \$HOME/.bash_profile (or similar)"
+	echo "您需要手动将 Deno 目录添加到 \$HOME/.bash_profile (或者其它类似目录)"
 	echo "  export DENO_INSTALL=\"$deno_install\""
 	echo "  export PATH=\"\$DENO_INSTALL/bin:\$PATH\""
-	echo "Run '$exe --help' to get started"
+	echo "运行 '$exe --help' 查看 Deno 帮助信息"
 fi

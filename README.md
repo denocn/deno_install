@@ -2,7 +2,7 @@
 
 **One-line commands to install Deno on your system.**
 
-[![Build Status](https://github.com/denoland/deno_install/workflows/ci/badge.svg?branch=master)](https://github.com/denoland/deno_install/actions)
+[![Build Status](https://github.com/denocn/deno_install/workflows/ci/badge.svg?branch=master)](https://github.com/denocn/deno_install/actions)
 
 ## Install Latest Version
 
