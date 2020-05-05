@@ -1,35 +1,35 @@
 # deno_install
 
-**One-line commands to install Deno on your system.**
+**通过单行命令将 Deno 安装到系统中**
 
 [![Build Status](https://github.com/denocn/deno_install/workflows/ci/badge.svg?branch=master)](https://github.com/denocn/deno_install/actions)
 
-## Install Latest Version
+## 安装最新版
 
-**With Shell:**
-
-```sh
-curl -fsSL https://deno.land/x/install/install.sh | sh
-```
-
-**With PowerShell:**
-
-```powershell
-iwr https://deno.land/x/install/install.ps1 -useb | iex
-```
-
-## Install Specific Version
-
-**With Shell:**
+**使用 Shell:**
 
 ```sh
-curl -fsSL https://deno.land/x/install/install.sh | sh -s v0.38.0
+curl -fsSL https://x.deno.js.cn/install.sh | sh
 ```
 
-**With PowerShell:**
+**使用 PowerShell:**
 
 ```powershell
-iwr https://deno.land/x/install/install.ps1 -useb -outf install.ps1; .\install.ps1 v0.38.0
+iwr https:/x.deno.js.cn/install.ps1 -useb | iex
+```
+
+## 安装某个特定版本
+
+**使用 Shell:**
+
+```sh
+curl -fsSL https://x.deno.js.cn/install.sh | sh -s v0.41.0
+```
+
+**使用 PowerShell:**
+
+```powershell
+iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.ps1 v0.41.0
 ```
 
 ## Install via Package Manager
