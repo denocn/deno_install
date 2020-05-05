@@ -1,6 +1,6 @@
 # deno_install
 
->> **通过单行命令将 Deno 安装到系统中（国内加速）**
+> **通过单行命令将 Deno 安装到系统中（国内加速）**
 
 [![Build Status](https://github.com/denocn/deno_install/workflows/ci/badge.svg?branch=master)](https://github.com/denocn/deno_install/actions)
 
