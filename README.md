@@ -1,60 +1,60 @@
 # deno_install
 
-**通过单行命令将 Deno 安装到系统中**
+>> **通过单行命令将 Deno 安装到系统中（国内加速）**
 
 [![Build Status](https://github.com/denocn/deno_install/workflows/ci/badge.svg?branch=master)](https://github.com/denocn/deno_install/actions)
 
-## 安装最新版
+## 1. 安装最新版
 
-**使用 Shell:**
+**1.1 使用 Shell:**
 
 ```sh
 curl -fsSL https://x.deno.js.cn/install.sh | sh
 ```
 
-**使用 PowerShell:**
+**1.2 使用 PowerShell:**
 
 ```powershell
 iwr https:/x.deno.js.cn/install.ps1 -useb | iex
 ```
 
-## 安装某个特定版本
+## 2. 安装某个特定版本
 
-**使用 Shell:**
+**2.1 使用 Shell:**
 
 ```sh
 curl -fsSL https://x.deno.js.cn/install.sh | sh -s v0.41.0
 ```
 
-**使用 PowerShell:**
+**2.2 使用 PowerShell:**
 
 ```powershell
 iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.ps1 v0.41.0
 ```
 
-## Install via Package Manager
+## 3. 使用包管理器
 
-**With [Scoop](https://scoop.sh):**
+**3.1 使用 [Scoop](https://scoop.sh):**
 
 ```powershell
 scoop install deno
 ```
 
-**With [Homebrew](https://formulae.brew.sh/formula/deno):**
+**3.2 使用 [Homebrew](https://formulae.brew.sh/formula/deno):**
 
 ```sh
 brew install deno
 ```
 
-**With [Chocolatey](https://chocolatey.org/packages/deno):**
+**3.3 使用 [Chocolatey](https://chocolatey.org/packages/deno):**
 
 ```powershell
 choco install deno
 ```
 
-## Install and Manage Multiple Versions
+## 4. 使用多版本管理工具
 
-**With [asdf](https://asdf-vm.com) and [asdf-deno](https://github.com/asdf-community/asdf-deno):**
+**4.1 使用 [asdf](https://asdf-vm.com) 和 [asdf-deno](https://github.com/asdf-community/asdf-deno):**
 
 ```sh
 asdf plugin-add deno https://github.com/asdf-community/asdf-deno.git
@@ -68,20 +68,20 @@ asdf global deno 0.38.0
 asdf local deno 0.38.0
 ```
 
-**With [Scoop](https://github.com/lukesampson/scoop/wiki/Switching-Ruby-And-Python-Versions):**
+**4.2 使用 [Scoop](https://github.com/lukesampson/scoop/wiki/Switching-Ruby-And-Python-Versions):**
 
 ```sh
-# Install a specific version of deno:
+# 安装某个特定版本的 Deno：
 scoop install deno@0.22.0
 
-# Switch to v0.22.0
+# 切换到 v0.22.0
 scoop reset deno@0.22.0
 
-# Switch to the latest version
+#切换到最新版
 scoop reset deno
 ```
 
-## Environment Variables
+## 5. 环境变量
 
 - `DENO_INSTALL` - The directory in which to install Deno. This defaults to
   `$HOME/.deno`. The executable is placed in `$DENO_INSTALL/bin`. One
@@ -101,13 +101,13 @@ scoop reset deno
   iwr https://deno.land/x/install/install.ps1 -useb | iex
   ```
 
-## Compatibility
+## 6. 兼容性
 
 - The Shell installer can be used on Windows via the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about).
 
-## Known Issues
+## 7. Known Issues
 
-### Running scripts is disabled
+### 7.1 Running scripts is disabled
 
 ```
 PS C:\> iwr https://deno.land/x/install/install.ps1 -useb -outf install.ps1; .\install.ps1 v0.38.0
