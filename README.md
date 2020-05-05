@@ -4,6 +4,10 @@
 
 [![Build Status](https://github.com/denocn/deno_install/workflows/ci/badge.svg?branch=master)](https://github.com/denocn/deno_install/actions)
 
+- Deno 官方最新版本 [![](https://img.shields.io/github/release/denoland/deno)](https://github.com/denoland/deno/releases)
+
+- Deno 镜像最新版本 ![](https://img.shields.io/badge/release-v1.0.0--rc1-blue.svg)
+
 ## 安装最新版
 
 **使用 Shell:**
