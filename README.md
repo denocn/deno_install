@@ -111,7 +111,7 @@ scoop reset deno
 
 ## 已知问题
 
-### Running scripts is disabled
+### 禁止运行脚本
 
 ```
 PS C:\> iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.ps1 v0.41.0
