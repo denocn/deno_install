@@ -4,57 +4,58 @@
 
 [![Build Status](https://github.com/denocn/deno_install/workflows/ci/badge.svg?branch=master)](https://github.com/denocn/deno_install/actions)
 
-## 1. 安装最新版
+## 安装最新版
 
-**1.1 使用 Shell:**
+**使用 Shell:**
 
 ```sh
 curl -fsSL https://x.deno.js.cn/install.sh | sh
 ```
 
-**1.2 使用 PowerShell:**
+**使用 PowerShell:**
 
 ```powershell
-iwr https:/x.deno.js.cn/install.ps1 -useb | iex
+iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.ps1
+# iwr https://x.deno.js.cn/install.ps1 -useb | iex
 ```
 
-## 2. 安装某个特定版本
+## 安装某个特定版本
 
-**2.1 使用 Shell:**
+**使用 Shell:**
 
 ```sh
 curl -fsSL https://x.deno.js.cn/install.sh | sh -s v0.41.0
 ```
 
-**2.2 使用 PowerShell:**
+**使用 PowerShell:**
 
 ```powershell
 iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.ps1 v0.41.0
 ```
 
-## 3. 使用包管理器
+## 使用包管理器
 
-**3.1 使用 [Scoop](https://scoop.sh):**
+**使用 [Scoop](https://scoop.sh):**
 
 ```powershell
 scoop install deno
 ```
 
-**3.2 使用 [Homebrew](https://formulae.brew.sh/formula/deno):**
+**使用 [Homebrew](https://formulae.brew.sh/formula/deno):**
 
 ```sh
 brew install deno
 ```
 
-**3.3 使用 [Chocolatey](https://chocolatey.org/packages/deno):**
+**使用 [Chocolatey](https://chocolatey.org/packages/deno):**
 
 ```powershell
 choco install deno
 ```
 
-## 4. 使用多版本管理工具
+## 使用多版本管理工具
 
-**4.1 使用 [asdf](https://asdf-vm.com) 和 [asdf-deno](https://github.com/asdf-community/asdf-deno):**
+**使用 [asdf](https://asdf-vm.com) 和 [asdf-deno](https://github.com/asdf-community/asdf-deno):**
 
 ```sh
 asdf plugin-add deno https://github.com/asdf-community/asdf-deno.git
@@ -68,7 +69,7 @@ asdf global deno 0.38.0
 asdf local deno 0.38.0
 ```
 
-**4.2 使用 [Scoop](https://github.com/lukesampson/scoop/wiki/Switching-Ruby-And-Python-Versions):**
+**使用 [Scoop](https://github.com/lukesampson/scoop/wiki/Switching-Ruby-And-Python-Versions):**
 
 ```sh
 # 安装某个特定版本的 Deno：
@@ -81,51 +82,50 @@ scoop reset deno@0.22.0
 scoop reset deno
 ```
 
-## 5. 环境变量
+## 环境变量
 
-- `DENO_INSTALL` - The directory in which to install Deno. This defaults to
-  `$HOME/.deno`. The executable is placed in `$DENO_INSTALL/bin`. One
-  application of this is a system-wide installation:
+- `DENO_INSTALL` - Deno 的安装目录。默认为 `$HOME/.deno`。Deno 可执行文件将安装在 `$DENO_INSTALL/bin` 目录。
+  安装成功后将对所有用户有效：
 
-  **With Shell (`/usr/local`):**
+  **使用 Shell (`/usr/local`):**
 
   ```sh
-  curl -fsSL https://deno.land/x/install/install.sh | sudo DENO_INSTALL=/usr/local sh
+  curl -fsSL https://x.deno.js.cn/install.sh | sudo DENO_INSTALL=/usr/local sh
   ```
 
-  **With PowerShell (`C:\Program Files\deno`):**
+  **使用 PowerShell (`C:\Program Files\deno`):**
 
   ```powershell
-  # Run as administrator:
+  # 使用管理员模式运行：
   $env:DENO_INSTALL = "C:\Program Files\deno"
-  iwr https://deno.land/x/install/install.ps1 -useb | iex
+  iwr https://x.deno.js.cn/install.ps1 -useb | iex
   ```
 
-## 6. 兼容性
+## 兼容性
 
-- The Shell installer can be used on Windows via the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about).
+- 此安装脚本可以运行在 [WSL（适用于 Linux 的 Windows 子系统）](https://docs.microsoft.com/zh-cn/windows/wsl/about)。
 
-## 7. Known Issues
+## 已知问题
 
-### 7.1 Running scripts is disabled
+### Running scripts is disabled
 
 ```
-PS C:\> iwr https://deno.land/x/install/install.ps1 -useb -outf install.ps1; .\install.ps1 v0.38.0
-.\install.ps1 : File C:\install.ps1 cannot be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
-At line:1 char:71
-+ ... /x/install/install.ps1 -useb -outf install.ps1; .\install.ps1 v0.38.0
+PS C:\> iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.ps1 v0.41.0
+.\install.ps1 : 无法加载文件 C:\Users\justjavac\install.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:/go.microsoft.com/fwlink/?LinkID=135170 中的 about_Execution_Policies。
+所在位置 行:1 字符: 63
++ ... deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.ps1 v0.41.0
 +                                                     ~~~~~~~~~~~~~
-    + CategoryInfo          : SecurityError: (:) [], ParentContainsErrorRecordException
+    + CategoryInfo          : SecurityError: (:) []，PSSecurityException
     + FullyQualifiedErrorId : UnauthorizedAccess
 ```
 
-**When does this issue occur?**
+**什么情况下会出现这个错误？**
 
-If your systems' [ExecutionPolicy](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies) is `Undefined` or `Restricted`.
+当您的系统的 [ExecutionPolicy](https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies) 为 `Undefined` 或 `Restricted` 时。
 
-**How can this issue be fixed?**
+**如何修复这个错误？**
 
-Allow scripts that are downloaded from the internet to be executed by setting the execution policy to `RemoteSigned`:
+允许系统运行从网络上下载的脚本文件，将执行策略设置为 `RemoteSigned`：
 
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
