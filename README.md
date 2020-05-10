@@ -6,7 +6,7 @@
 
 - Deno 官方最新版本 [![](https://img.shields.io/github/release/denoland/deno)](https://github.com/denoland/deno/releases)
 
-- Deno 镜像最新版本 ![](https://img.shields.io/badge/release-v1.0.0--rc1-blue.svg)
+- Deno 镜像最新版本 ![](https://img.shields.io/badge/release-v1.0.0--rc2-blue.svg)
 
 ## 安装最新版
 
