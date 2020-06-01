@@ -18,7 +18,7 @@ deno_version=$1
 
 if [ $# -eq 0 ]; then
 	deno_version=$(
-		command curl -sSf https://deno.devtips.cn/releases/versions |
+		command curl -sSf https://x.deno.js.cn/versions.txt |
 			command head -n 1
 	)
 fi
