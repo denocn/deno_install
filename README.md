@@ -130,6 +130,7 @@ PS C:\> iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.
 +                                                     ~~~~~~~~~~~~~
     + CategoryInfo          : SecurityError: (:) []，PSSecurityException
     + FullyQualifiedErrorId : UnauthorizedAccess
+```
 
 **什么情况下会出现这个错误？**
 
