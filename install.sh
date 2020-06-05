@@ -23,7 +23,7 @@ if [ $# -eq 0 ]; then
 	)
 fi
 
-deno_uri="https://deno.devtips.cn/releases/download/${deno_version}/deno-${target}.zip"
+deno_uri="http://deno.devtips.cn/releases/download/${deno_version}/deno-${target}.zip"
 
 echo $deno_uri
 
