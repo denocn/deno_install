@@ -4,6 +4,16 @@
 
 set -e
 
+if [ "$(uname -m)" != "x86_64" ]; then
+	echo "Error: Unsupported architecture $(uname -m). Only x64 binaries are available." 1>&2
+	exit 1
+fi
+
+if ! command -v unzip >/dev/null; then
+	echo "Error: unzip is required to install Deno (see: https://deno.js.cn/t/topic/167)." 1>&2
+	exit 1
+fi
+
 case $(uname -s) in
 Darwin) target="x86_64-apple-darwin" ;;
 *) target="x86_64-unknown-linux-gnu" ;;
@@ -47,7 +57,11 @@ echo "可执行文件位置为 $exe"
 if command -v deno >/dev/null; then
 	echo "运行 'deno --help' 查看 Deno 帮助信息"
 else
-	echo "您需要手动将 Deno 目录添加到 \$HOME/.bash_profile (或者其它类似目录)"
+	case $SHELL in
+	/bin/zsh) shell_profile=".zshrc" ;;
+	*) shell_profile=".bash_profile" ;;
+	esac
+	echo "您需要手动将 Deno 目录添加到 \$HOME/shell_profile (或者其它类似目录)"
 	echo "  export DENO_INSTALL=\"$deno_install\""
 	echo "  export PATH=\"\$DENO_INSTALL/bin:\$PATH\""
 	echo "运行 '$exe --help' 查看 Deno 帮助信息"

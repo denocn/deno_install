@@ -28,13 +28,13 @@ iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.ps1
 **使用 Shell:**
 
 ```sh
-curl -fsSL https://x.deno.js.cn/install.sh | sh -s v0.41.0
+curl -fsSL https://x.deno.js.cn/install.sh | sh -s v1.0.0
 ```
 
 **使用 PowerShell:**
 
 ```powershell
-iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.ps1 v0.41.0
+$v="1.0.0"; iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.ps1
 ```
 
 ## 使用包管理器
@@ -59,28 +59,37 @@ choco install deno
 
 ## 使用多版本管理工具
 
+**使用 Yay (AUR) ([deno](https://aur.archlinux.org/packages/deno) 和 [deno-bin](https://aur.archlinux.org/packages/deno-bin)):**
+
+```sh
+# From source
+yay -S deno
+# Pre-compiled
+yay -S deno-bin
+```
+
 **使用 [asdf](https://asdf-vm.com) 和 [asdf-deno](https://github.com/asdf-community/asdf-deno):**
 
 ```sh
 asdf plugin-add deno https://github.com/asdf-community/asdf-deno.git
 
-asdf install deno 0.38.0
+asdf install deno 1.0.0
 
 # Activate globally with:
-asdf global deno 0.38.0
+asdf global deno 1.0.0
 
 # Activate locally in the current folder with:
-asdf local deno 0.38.0
+asdf local deno 1.0.0
 ```
 
 **使用 [Scoop](https://github.com/lukesampson/scoop/wiki/Switching-Ruby-And-Python-Versions):**
 
 ```sh
 # 安装某个特定版本的 Deno：
-scoop install deno@0.22.0
+scoop install deno@1.0.0
 
-# 切换到 v0.22.0
-scoop reset deno@0.22.0
+# 切换到 v1.0.0
+scoop reset deno@1.0.0
 
 #切换到最新版
 scoop reset deno
@@ -121,7 +130,6 @@ PS C:\> iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.
 +                                                     ~~~~~~~~~~~~~
     + CategoryInfo          : SecurityError: (:) []，PSSecurityException
     + FullyQualifiedErrorId : UnauthorizedAccess
-```
 
 **什么情况下会出现这个错误？**
 
@@ -134,3 +142,20 @@ PS C:\> iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 ```
+
+### unzip is required
+
+Shell 安装脚本需要 [`unzip`](https://linux.die.net/man/1/unzip) 软件。
+
+**什么情况下会出现这个错误？**
+
+```sh
+$ curl -fsSL https://deno.land/x/install/install.sh | sh
+Error: unzip is required to install Deno (see: https://deno.js.cn/t/topic/167).
+```
+
+当运行 `install.sh` 时，`unzip` 用来解压 Deno 的二进制 zip 包。
+
+**如何修复这个错误？**
+
+你可以通过在 macOS 上运行 `brew install unzip` 或者 Linux 上运行 `apt-get install unzip -y` 来安装 `unzip` 程序。
