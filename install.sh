@@ -19,11 +19,6 @@ Darwin) target="x86_64-apple-darwin" ;;
 *) target="x86_64-unknown-linux-gnu" ;;
 esac
 
-if [ $(uname -m) != "x86_64" ]; then
-	echo "Unsupported architecture $(uname -m). Only x64 binaries are available."
-	exit
-fi
-
 deno_version=$1
 
 if [ $# -eq 0 ]; then
@@ -59,7 +54,7 @@ else
 	/bin/zsh) shell_profile=".zshrc" ;;
 	*) shell_profile=".bash_profile" ;;
 	esac
-	echo "您需要手动将 Deno 目录添加到 \$HOME/shell_profile (或者其它类似目录)"
+	echo "您需要手动将 Deno 目录添加到 \$HOME/$shell_profile (或者其它类似目录)"
 	echo "  export DENO_INSTALL=\"$deno_install\""
 	echo "  export PATH=\"\$DENO_INSTALL/bin:\$PATH\""
 	echo "运行 '$exe --help' 查看 Deno 帮助信息"
