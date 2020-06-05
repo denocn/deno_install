@@ -35,8 +35,6 @@ fi
 
 deno_uri="http://deno.devtips.cn/releases/download/${deno_version}/deno-${target}.zip"
 
-echo $deno_uri
-
 deno_install="${DENO_INSTALL:-$HOME/.deno}"
 bin_dir="$deno_install/bin"
 exe="$bin_dir/deno"
