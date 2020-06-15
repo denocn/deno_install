@@ -19,8 +19,7 @@ curl -fsSL https://x.deno.js.cn/install.sh | sh
 **使用 PowerShell:**
 
 ```powershell
-iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.ps1
-# iwr https://x.deno.js.cn/install.ps1 -useb | iex
+iwr https://x.deno.js.cn/install.ps1 -useb | iex
 ```
 
 ## 安装某个特定版本
