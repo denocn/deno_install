@@ -62,6 +62,5 @@ if (!(";$Path;".ToLower() -like "*;$BinDir;*".ToLower())) {
   $Env:Path += ";$BinDir"
 }
 
-Write-Output "Deno 已经成功安装。"
-Write-Output "可执行文件位置为 $DenoExe"
-Write-Output "运行 'deno --help' 查看 Deno 帮助信息。"
+Write-Output "Deno was installed successfully to $DenoExe"
+Write-Output "Run 'deno --help' to get started"
