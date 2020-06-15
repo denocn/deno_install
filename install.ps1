@@ -1,4 +1,4 @@
-ï»¿#!/usr/bin/env pwsh
+#!/usr/bin/env pwsh
 # Copyright 2018-2020 the Deno authors. All rights reserved. MIT license.
 # TODO(everyone): Keep this script simple and easily auditable.
 
@@ -51,6 +51,6 @@ if (!(";$Path;".ToLower() -like "*;$BinDir;*".ToLower())) {
   [Environment]::SetEnvironmentVariable('Path', "$Path;$BinDir", $User)
   $Env:Path += ";$BinDir"
 }
-Write-Output "Deno å·²ç»æˆåŠŸå®‰è£…ã€‚"
-Write-Output "å¯æ‰§è¡Œæ–‡ä»¶ä½ç½®ä¸º $DenoExe"
-Write-Output "è¿è¡Œ 'deno --help' æŸ¥çœ‹ Deno å¸®åŠ©ä¿¡æ¯ã€‚"
+Write-Output "Deno ÒÑ¾­³É¹¦°²×°¡£"
+Write-Output "¿ÉÖ´ĞĞÎÄ¼şÎ»ÖÃÎª $DenoExe"
+Write-Output "ÔËĞĞ 'deno --help' ²é¿´ Deno °ïÖúĞÅÏ¢¡£"
