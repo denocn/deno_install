@@ -4,7 +4,10 @@
 
 $ErrorActionPreference = 'Stop'
 
-if ($args.Length -gt 0) {
+if ($v) {
+  $Version = "v${v}"
+}
+if ($args.Length -gt 1) {
   $Version = $args.Get(0)
 }
 
@@ -15,15 +18,13 @@ if ($PSVersionTable.PSEdition -ne 'Core') {
 
 $DenoInstall = $env:DENO_INSTALL
 $BinDir = if ($DenoInstall) {
-    "$DenoInstall\bin"
-} elseif ($IsWindows) {
+  "$DenoInstall\bin"
+} else {
   "$Home\.deno\bin"
 }
 
 $DenoZip = "$BinDir\deno.zip"
-
 $DenoExe = "$BinDir\deno.exe"
-
 $Target = 'x86_64-pc-windows-msvc'
 
 # GitHub requires TLS 1.2
@@ -42,7 +43,16 @@ if (!(Test-Path $BinDir)) {
 
 Invoke-WebRequest $DenoUri -OutFile $DenoZip -UseBasicParsing
 
-Expand-Archive $DenoZip -Destination $BinDir -Force
+if (Get-Command Expand-Archive -ErrorAction SilentlyContinue) {
+  Expand-Archive $DenoZip -Destination $BinDir -Force
+} else {
+  if (Test-Path $DenoExe) {
+    Remove-Item $DenoExe
+  }
+  Add-Type -AssemblyName System.IO.Compression.FileSystem
+  [IO.Compression.ZipFile]::ExtractToDirectory($DenoZip, $BinDir)
+}
+
 Remove-Item $DenoZip
 
 $User = [EnvironmentVariableTarget]::User
@@ -51,6 +61,7 @@ if (!(";$Path;".ToLower() -like "*;$BinDir;*".ToLower())) {
   [Environment]::SetEnvironmentVariable('Path', "$Path;$BinDir", $User)
   $Env:Path += ";$BinDir"
 }
+
 Write-Output "Deno 已经成功安装。"
 Write-Output "可执行文件位置为 $DenoExe"
 Write-Output "运行 'deno --help' 查看 Deno 帮助信息。"
