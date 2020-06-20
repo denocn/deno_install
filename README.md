@@ -1,12 +1,13 @@
-# deno_install
+# deno_install [![Build Status](https://github.com/denocn/deno_install/workflows/ci/badge.svg?branch=master)](https://github.com/denocn/deno_install/actions)
 
 > **通过单行命令将 Deno 安装到系统中（国内加速）**
 
-[![Build Status](https://github.com/denocn/deno_install/workflows/ci/badge.svg?branch=master)](https://github.com/denocn/deno_install/actions)
-
 - Deno 官方最新版本 [![](https://img.shields.io/github/release/denoland/deno)](https://github.com/denoland/deno/releases)
-
 - Deno 镜像最新版本 ![](https://img.shields.io/badge/release-v1.1.1-blue.svg)
+
+国内加速镜像使用的七牛云 CDN，每天的下载量为 2GB+(五月份)。如果这个下载镜像帮助到了你，可以通过下面二维码进行捐赠：
+
+<p align="center"><img src="https://cdn.devtips.cn/buy-me-a-coffee-wechat.png" width="200" height="200" alt="" /></p>
 
 ## 安装最新版
 
