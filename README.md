@@ -34,12 +34,12 @@ curl -fsSL https://x.deno.js.cn/install.sh | sh -s v1.0.0
 **使用 PowerShell:**
 
 ```powershell
-$v="1.0.0"; iwr https://x.deno.js.cn/install.ps1 -useb -outf install.ps1; .\install.ps1
+$v="1.0.0"; iwr https://x.deno.js.cn/install.ps1 -useb | iex
 ```
 
 ## 使用包管理器
 
-**使用 [Scoop](https://scoop.sh):**
+**使用 [Scoop](https://github.com/ScoopInstaller/Main/blob/master/bucket/deno.json):**
 
 ```powershell
 scoop install deno

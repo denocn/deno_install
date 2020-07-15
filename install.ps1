@@ -7,13 +7,9 @@ $ErrorActionPreference = 'Stop'
 if ($v) {
   $Version = "v${v}"
 }
+
 if ($args.Length -eq 1) {
   $Version = $args.Get(0)
-}
-
-if ($PSVersionTable.PSEdition -ne 'Core') {
-  $IsWindows = $true
-  $IsMacOS = $false
 }
 
 $DenoInstall = $env:DENO_INSTALL
