@@ -3,7 +3,7 @@
 > **通过单行命令将 Deno 安装到系统中（国内加速）**
 
 - Deno 官方最新版本 [![](https://img.shields.io/github/release/denoland/deno)](https://github.com/denoland/deno/releases)
-- Deno 镜像最新版本 ![](https://img.shields.io/badge/release-v1.4.0-blue.svg)
+- Deno 镜像最新版本 ![](https://img.shields.io/badge/release-v1.4.1-blue.svg)
 
 国内加速镜像使用的七牛云 CDN，每天的下载量为 3GB+(六月份)。如果这个下载镜像帮助到了你，可以通过下面二维码进行捐赠：
 
