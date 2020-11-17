@@ -19,7 +19,7 @@ Darwin) target="x86_64-apple-darwin" ;;
 *) target="x86_64-unknown-linux-gnu" ;;
 esac
 
-deno_version=${1/v/}
+deno_version=$(printf '%s' "$1" | tr -d 'v')
 
 if [ $# -eq 0 ]; then
 	deno_version=$(
