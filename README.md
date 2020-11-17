@@ -56,6 +56,16 @@ choco install deno
 
 ## 使用多版本管理工具
 
+**使用 [dvm](https://github.com/justjavac/dvm) - Deno Version Manager:**
+
+```sh
+# 安装某个特定版本的 Deno：
+dvm install 1.0.0
+
+# 安装最新版
+dvm install
+```
+
 **使用 Yay (AUR) ([deno](https://aur.archlinux.org/packages/deno) 和 [deno-bin](https://aur.archlinux.org/packages/deno-bin)):**
 
 ```sh
