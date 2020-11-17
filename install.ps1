@@ -5,11 +5,11 @@
 $ErrorActionPreference = 'Stop'
 
 if ($v) {
-  $Version = "v${v}"
+  $Version = "${v}"
 }
 
 if ($args.Length -eq 1) {
-  $Version = $args.Get(0)
+  $Version = $args.Get(0).Replace("v","")
 }
 
 $DenoInstall = $env:DENO_INSTALL
@@ -27,11 +27,11 @@ $Target = 'x86_64-pc-windows-msvc'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 if (!$Version) {
-  $Versions = (Invoke-WebRequest 'https://x.deno.js.cn/versions.txt' -UseBasicParsing).Content -split '\n'
+  $Versions = (Invoke-WebRequest 'https://cdn.jsdelivr.net/gh/justjavac/deno_releases/versions.txt' -UseBasicParsing).Content -split '\n'
   $Version = $Versions[0]
 }
 
-$DenoUri = "http://deno.devtips.cn/releases/download/$Version/deno-${Target}.zip"
+$DenoUri = "https://cdn.jsdelivr.net/gh/justjavac/deno_releases/$Version/deno-${Target}.zip"
 
 if (!(Test-Path $BinDir)) {
   New-Item $BinDir -ItemType Directory | Out-Null

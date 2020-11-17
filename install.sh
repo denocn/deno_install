@@ -19,16 +19,16 @@ Darwin) target="x86_64-apple-darwin" ;;
 *) target="x86_64-unknown-linux-gnu" ;;
 esac
 
-deno_version=$1
+deno_version=${1/v/}
 
 if [ $# -eq 0 ]; then
 	deno_version=$(
-		command curl -sSf https://x.deno.js.cn/versions.txt |
+		command curl -sSf https://cdn.jsdelivr.net/gh/justjavac/deno_releases/versions.txt |
 			command head -n 1
 	)
 fi
 
-deno_uri="http://deno.devtips.cn/releases/download/${deno_version}/deno-${target}.zip"
+deno_uri="https://cdn.jsdelivr.net/gh/justjavac/deno_releases/${deno_version}/deno-${target}.zip"
 
 deno_install="${DENO_INSTALL:-$HOME/.deno}"
 bin_dir="$deno_install/bin"
