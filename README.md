@@ -2,7 +2,7 @@
 
 > **通过单行命令将 Deno 安装到系统中（国内加速）**
 
-本项目为公益项目，国内加速镜像使用的七牛云 CDN，每天的下载量为 3GB+(六月份)。如果这个下载镜像帮助到了你，可以通过下面二维码进行捐赠：
+本项目为公益项目，如果这个下载镜像帮助到了你，可以通过下面二维码进行捐赠：
 
 <p align="center"><img src="https://cdn.devtips.cn/buy-me-a-coffee-wechat.png" width="200" height="200" alt="" /></p>
 
