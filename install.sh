@@ -19,16 +19,19 @@ Darwin) target="x86_64-apple-darwin" ;;
 *) target="x86_64-unknown-linux-gnu" ;;
 esac
 
-deno_version=$(printf '%s' "$1" | tr -d 'v')
-
 if [ $# -eq 0 ]; then
-	deno_version=$(
-		command curl -sSf https://cdn.jsdelivr.net/gh/justjavac/deno_releases/versions.txt |
-			command head -n 1
-	)
+	deno_version=$(curl -sSf https://dl.deno.land/release-latest.txt)
+else
+	deno_version="$1"
 fi
 
-deno_uri="https://cdn.jsdelivr.net/gh/justjavac/deno_releases/${deno_version}/deno-${target}.zip"
+deno_version=$(printf '%s' "$deno_version" | tr -d 'v')
+
+if printf "%s\n" "$deno_version" | grep -q '1.[0-6].[0-9]'; then
+	deno_uri="https://cdn.jsdelivr.net/gh/justjavac/deno_releases/${deno_version}/deno-${target}.zip"
+else
+	deno_uri="https://dl.deno.land/release/v${deno_version}/deno-${target}.zip"
+fi
 
 deno_install="${DENO_INSTALL:-$HOME/.deno}"
 bin_dir="$deno_install/bin"
